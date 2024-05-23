@@ -108,52 +108,52 @@ const Signup = () => {
                 <div className="col-span-2">
                   <FormInput
                     type="text"
-                    label="name"
+                    label="Name"
                     name="name"
                     handleChange={handleChange}
                     place="Name"
                   />
                   <FormInput
                     type="text"
-                    label="gender"
+                    label="Gender"
                     name="gender"
                     handleChange={handleChange}
                     place="Gender"
                   />
                   <FormInput
                     type="text"
-                    label="lga"
+                    label="L.G.A"
                     name="lga"
                     handleChange={handleChange}
-                    place= "LGA"
+                    place="LGA"
                   />
                   <FormInput
                     type="text"
-                    label="town"
+                    label="Town"
                     name="town"
                     handleChange={handleChange}
                     place="Town"
                   />
                   <FormInput
                     type="number"
-                    label="phone"
+                    label="Phone Number"
                     name="phone"
                     handleChange={handleChange}
-                    place= "Phone"
+                    place="Phone"
                   />
                   <FormInput
                     type="text"
-                    label="email"
+                    label="Email"
                     name="email"
                     handleChange={handleChange}
                     place="Email"
                   />
                   <FormInput
                     type="password"
-                    label="password"
+                    label="Password"
                     name="password"
                     handleChange={handleChange}
-                    place= "Password"
+                    place="Password"
                   />{" "}
                 </div>
               </div>
