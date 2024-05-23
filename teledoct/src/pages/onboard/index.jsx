@@ -285,7 +285,7 @@ const Onboard = () => {
                   </button>
                   <Link
                     to="/media"
-                    className="border border-green-600 h-[200px] rounded-md  col-span-2 hover:bg-green-600 hover:text-white transition-all duration-300"
+                    className="border flex justify-center items-center border-green-600 h-[200px] rounded-md  col-span-2 hover:bg-green-600 hover:text-white transition-all duration-300"
                   >
                     Live Chat
                   </Link>

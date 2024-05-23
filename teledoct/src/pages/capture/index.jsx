@@ -314,21 +314,20 @@ function Container(props) {
   }, [props.meetingId]);
 
   const [joined, setJoined] = useState(null);
-  //Get the method which will be used to join the meeting.
+
   const { join } = useMeeting();
   const mMeeting = useMeeting({
     onMeetingJoined: () => {
-      //Pin the local participant if he joins in CONFERENCE mode
       if (mMeetingRef.current.localParticipant.mode == "CONFERENCE") {
         mMeetingRef.current.localParticipant.pin();
       }
       setJoined("JOINED");
     },
-    //callback for when a meeting is left
+
     onMeetingLeft: () => {
       props.onMeetingLeave();
     },
-    //callback for when there is an error in a meeting
+
     onError: (error) => {
       alert(error.message);
     },
