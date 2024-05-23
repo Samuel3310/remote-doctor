@@ -7,13 +7,13 @@ const Signup = () => {
   const [active, setActive] = useState(1);
   const [signin, setSignin] = useState(false);
   const [formData, setFormData] = useState({
-    Name: "",
-    Gender: "",
-    LGA: "",
-    Town: "",
-    Phone: "",
-    Email: "",
-    Password: "",
+    name: "",
+    gender: "",
+    lga: "",
+    town: "",
+    phone: "",
+    email: "",
+    password: "",
   });
 
   const data = [
@@ -108,43 +108,43 @@ const Signup = () => {
                 <div className="col-span-2">
                   <FormInput
                     type="text"
-                    label="Name"
+                    label="name"
                     name="name"
                     handleChange={handleChange}
                   />
                   <FormInput
                     type="text"
-                    label="Gender"
+                    label="gender"
                     name="gender"
                     handleChange={handleChange}
                   />
                   <FormInput
                     type="text"
-                    label="LGA"
+                    label="lga"
                     name="lga"
                     handleChange={handleChange}
                   />
                   <FormInput
                     type="text"
-                    label="Town"
+                    label="town"
                     name="town"
                     handleChange={handleChange}
                   />
                   <FormInput
                     type="number"
-                    label="Phone"
+                    label="phone"
                     name="phone"
                     handleChange={handleChange}
                   />
                   <FormInput
                     type="text"
-                    label="Email"
+                    label="email"
                     name="email"
                     handleChange={handleChange}
                   />
                   <FormInput
                     type="password"
-                    label="Password"
+                    label="password"
                     name="password"
                     handleChange={handleChange}
                   />{" "}
