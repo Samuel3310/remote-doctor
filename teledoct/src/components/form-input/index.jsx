@@ -13,7 +13,6 @@ const FormInput = ({ label, type, handleChange, place }) => {
         type={type}
         name={label}
         placeholder={place}
-    }
         onChange={handleChange}
       />
     </div>
