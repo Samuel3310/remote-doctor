@@ -116,7 +116,7 @@ function ParticipantView(props) {
           url={videoStream}
           //
           height={"300px"}
-          width={"100%"}
+          width={"300px"}
           onError={(err) => {
             console.log(err, "participant video error");
           }}
@@ -342,7 +342,7 @@ function Container(props) {
     mMeetingRef.current = mMeeting;
   }, [mMeeting]);
   return (
-    <div className="max-w-[700px] h-screen mx-auto flex items-center gap-4 justify-center">
+    <div className="max-w-[700px] min-h-screen mx-auto flex items-center gap-4 justify-center">
       <div className="flex flex-col gap-3 items-center">
         <h3 className="mt-2 font-bold">Meeting Id: {props.meetingId}</h3>
         {joined && joined == "JOINED" ? (
