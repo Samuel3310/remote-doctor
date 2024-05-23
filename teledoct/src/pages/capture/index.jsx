@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+
 import {
   MeetingProvider,
   MeetingConsumer,
@@ -10,6 +11,7 @@ import {
 import { authToken, createMeeting } from "../../Api.js";
 import ReactPlayer from "react-player";
 import Hls from "hls.js";
+import { UserContext } from "../../components/store/Usercontext.jsx";
 
 function JoinScreen({ getMeetingAndToken, setMode }) {
   const [meetingId, setMeetingId] = useState(null);
@@ -282,37 +284,6 @@ function ViewerView() {
 }
 
 function Container(props) {
-  useEffect(() => {
-    const postConsultation = async () => {
-      const payload = {
-        patient: 1,
-        status: 0,
-        message_id: props.meetingId,
-      };
-
-      try {
-        const res = await fetch("/api/consult/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        });
-
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-
-        const data = await res.json();
-        console.log("Consultation Response:", data);
-      } catch (error) {
-        console.error("Error posting consultation:", error);
-      }
-    };
-
-    postConsultation();
-  }, [props.meetingId]);
-
   const [joined, setJoined] = useState(null);
 
   const { join } = useMeeting();
@@ -368,6 +339,73 @@ function Container(props) {
 
 function Media() {
   const [meetingId, setMeetingId] = useState(null);
+  const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    setUser(meetingId);
+
+    console.log(user);
+  }, [meetingId, setUser, user]);
+  useEffect(() => {
+    if (meetingId) {
+      setUserId(meetingId);
+    }
+  }, [meetingId, setUserId]);
+
+  useEffect(() => {
+    const postConsultation = async () => {
+      if (!user) return;
+
+      const payload = {
+        patient: 1,
+        status: 0,
+      };
+
+      try {
+        // Step 1: Send the initial request to create a consultation
+        const res = await fetch(
+          "https://shegzee.pythonanywhere.com/api/consult/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
+        const data = await res.json();
+        console.log("Initial Consultation Response:", data);
+
+        const updatedData = { ...data, id: user };
+
+        const updateRes = await fetch(
+          `https://shegzee.pythonanywhere.com/api/consult/${data.id}/`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedData),
+          }
+        );
+
+        if (!updateRes.ok) {
+          throw new Error(`HTTP error! status: ${updateRes.status}`);
+        }
+
+        const updatedResponse = await updateRes.json();
+      } catch (error) {
+        console.error("Error updating consultation:", error);
+      }
+    };
+
+    postConsultation();
+  }, [user, meetingId]);
 
   //State to handle the mode of the participant i.e. CONFERENCE or VIEWER
   const [mode, setMode] = useState("CONFERENCE");
