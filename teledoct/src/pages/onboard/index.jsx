@@ -284,7 +284,7 @@ const Onboard = () => {
                     Voice Record
                   </button>
                   <Link
-                    to="./media"
+                    to="/media"
                     className="border border-green-600 h-[200px] rounded-md  col-span-2 hover:bg-green-600 hover:text-white transition-all duration-300"
                   >
                     Live Chat
