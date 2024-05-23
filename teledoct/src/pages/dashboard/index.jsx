@@ -25,7 +25,7 @@ const Dashboard = () => {
     {
       id: 3,
       name: "Doctor",
-      to: "https://shegzee.pythonanywhere.com/consult/doctor/",
+      to: "/signdoc",
     },
   ];
   return (

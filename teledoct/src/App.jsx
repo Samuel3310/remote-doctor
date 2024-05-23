@@ -9,6 +9,7 @@ import NotFound from "./pages/non-found";
 import Onboard from "./pages/onboard";
 import Media from "./pages/capture";
 import { UserProvider } from "./components/store/Usercontext";
+import SignDoc from "./pages/sign-doc";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/agent" element={<Agent />} />
             <Route path="/doctor" element={<Doctor />} />
             <Route path="/patient" element={<Patient />} />
+            <Route path="/signdoc" element={<SignDoc />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/onboard" element={<Onboard />} />
