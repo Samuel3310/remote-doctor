@@ -2,7 +2,7 @@ const FormInput = ({ label, type, handleChange, place }) => {
   return (
     <div className="mb-0">
       <label
-        className="block text-gray-700 text-sm font-bold mb-2"
+        className="block text-gray-700 uppercase text-sm font-bold mb-2"
         htmlFor={label}
       >
         {label}
