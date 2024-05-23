@@ -1,4 +1,4 @@
-const FormInput = ({ label, type, handleChange }) => {
+const FormInput = ({ label, type, handleChange, place }) => {
   return (
     <div className="mb-0">
       <label
@@ -12,7 +12,8 @@ const FormInput = ({ label, type, handleChange }) => {
         id={label}
         type={type}
         name={label}
-        placeholder={label}
+        placeholder={place}
+    }
         onChange={handleChange}
       />
     </div>
