@@ -40,7 +40,7 @@ const Onboard = () => {
   const [userData, setUserData] = useState([]);
   const [signin, setSignin] = useState(false);
   const [rData, setRData] = useState({});
-  const [requestCare, setRequestCare] = useState(true);
+  const [requestCare, setRequestCare] = useState(false);
 
   useEffect(() => {
     if (Object.keys(rData).length > 0) {
@@ -307,30 +307,34 @@ const Onboard = () => {
                     </p>
                   </div>
                   <div className="w-full mx-auto md:w-full p-3 ">
-                    <div className="hereisthescreen w-full  h-[400px] bg-gray-300 rounded-xl relative z-1">
-                      <div className="absolute flex flex-col gap-3 left-2 top-[50%] translate-y-[-50%]">
-                        {" "}
-                        <button className="">
-                          <AiFillAudio
-                            size={24}
-                            className="text-gray-800 hover:text-green-600"
-                          />
-                        </button>
-                        <button className="">
-                          <FaCameraRetro
-                            size={24}
-                            className="text-gray-800 hover:text-green-600"
-                          />
-                        </button>
-                        <button className="">
-                          <CiImageOn
-                            size={24}
-                            className="text-gray-800 hover:text-green-600"
-                          />
-                        </button>
-                      </div>
-                      <div className="p-2 bg-red-600 w-40 rounded-xl text-white text-center absolute bottom-0 right-0 cursor-pointer">
-                        Send Request
+                    <div className="relative">
+                      <div className="grid grid-cols-2 grid-rows-2 gap-5 mt-5">
+                        {data.map(({ title, text, icon }) => (
+                          <div
+                            onClick={() => {
+                              title === "Onboard Patient"
+                                ? setSignin(!signin)
+                                : title === "Request Care"
+                                ? setRequestCare(!requestCare)
+                                : "";
+                            }}
+                            key={title}
+                            className="p-4 text-center  flex flex-col justify-center items-center rounded-md text-gray-900  border-2 border-green-500 transition-[background] duration-300 overflow-hidden relative 
+              font-semibold font-md shadow-xl hover:shadow-md cursor-pointer 
+              "
+                          >
+                            <span className="h-12 w-12 bg-green-600 rounded-full flex justify-center items-center">
+                              {icon}
+                            </span>
+                            <p className="text-green-600 text-xl md:text-2xl">
+                              {" "}
+                              {title}
+                            </p>
+                            <p className="text-sm text-gray-600 text-left">
+                              {text}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
