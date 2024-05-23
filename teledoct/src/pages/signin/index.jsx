@@ -82,7 +82,7 @@ const Signin = () => {
               </div>
             </form>
             <p className="text-center text-gray-500 text-xs">
-              &copy;{new Date().getFullYear()} Tele-Med-Care. All rights
+              &copy;{new Date().getFullYear()} remote Doctor. All rights
               reserved.
             </p>
           </div>

@@ -348,9 +348,9 @@ function Media() {
   }, [meetingId, setUser, user]);
   useEffect(() => {
     if (meetingId) {
-      setUserId(meetingId);
+      setUser(meetingId);
     }
-  }, [meetingId, setUserId]);
+  }, [meetingId, setUser]);
 
   useEffect(() => {
     const postConsultation = async () => {
@@ -399,6 +399,7 @@ function Media() {
         }
 
         const updatedResponse = await updateRes.json();
+        console.log("Updated Consultation Response:", updatedResponse);
       } catch (error) {
         console.error("Error updating consultation:", error);
       }
