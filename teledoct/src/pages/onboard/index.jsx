@@ -209,7 +209,7 @@ const Onboard = () => {
       <div className="w-full flex justify-center flex-col gap-4">
         <div className="flex justify-between md:px-10 px-4 py-5">
           <h1 className="text-md font-bold text-center items-center">
-            Welcome to to Tele-Med-Care
+            Welcome to to Remote Doctor
           </h1>
           <div>
             <p>Ekt/16/0011</p>
