@@ -111,42 +111,49 @@ const Signup = () => {
                     label="name"
                     name="name"
                     handleChange={handleChange}
+                    place="Name"
                   />
                   <FormInput
                     type="text"
                     label="gender"
                     name="gender"
                     handleChange={handleChange}
+                    place="Gender"
                   />
                   <FormInput
                     type="text"
                     label="lga"
                     name="lga"
                     handleChange={handleChange}
+                    place= "LGA"
                   />
                   <FormInput
                     type="text"
                     label="town"
                     name="town"
                     handleChange={handleChange}
+                    place="Town"
                   />
                   <FormInput
                     type="number"
                     label="phone"
                     name="phone"
                     handleChange={handleChange}
+                    place= "Phone"
                   />
                   <FormInput
                     type="text"
                     label="email"
                     name="email"
                     handleChange={handleChange}
+                    place="Email"
                   />
                   <FormInput
                     type="password"
                     label="password"
                     name="password"
                     handleChange={handleChange}
+                    place= "Password"
                   />{" "}
                 </div>
               </div>
